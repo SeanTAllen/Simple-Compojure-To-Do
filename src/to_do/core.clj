@@ -6,7 +6,10 @@
   "hello")
 
 (defroutes myroutes
-  (GET "/" [] (welcome)))
+  (GET "/" [] (welcome))
+  (GET "/new" [] (welcome)
+  (POST "/add" [] (welcome)
+  (POST "/finished" [] (welcome)))))
 
 
 (defonce server 

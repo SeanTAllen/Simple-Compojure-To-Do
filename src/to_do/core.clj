@@ -1,5 +1,6 @@
 (ns to-do.core
-  (:require [net.cgrand.enlive-html :as html])
+  (:require [net.cgrand.enlive-html :as html]
+            [to-do.templates :as templates])
   [:use compojure.core
         ring.adapter.jetty
         ring.middleware.file])
@@ -9,26 +10,18 @@
 
 (defn completed-todos []
   (filter #(= (get % :completed) false) *todo*))
-  
-(def *todo-selector* [:.todo])
-
-(html/defsnippet todo-model "templates/list.html" *todo-selector*
-  [{:keys [title id]}]
-  [:.title] (html/content title)
-  [[:input (html/attr= :name "id")]] (html/set-attr :value id))
-  
-(html/deftemplate index "templates/list.html"
-  [todos]
-  *todo-selector* (html/substitute (map #(todo-model %) todos)))
-          
+            
 (defn welcome []
-  (apply str(index (completed-todos))))
+  (apply str(templates/todo-list (completed-todos))))
+
+(defn todo-new []
+  (apply str(templates/todo-new)))
 
 (defroutes myroutes
   (GET "/" [] (welcome))
-  (GET "/new" [] (welcome)
-  (POST "/add" [] (welcome)
-  (POST "/finished" [] (welcome)))))
+  (GET "/new" [] (todo-new))
+  (POST "/add" [] (welcome))
+  (POST "/finished" [] (welcome)))
 
 (def app 
   (-> #'myroutes

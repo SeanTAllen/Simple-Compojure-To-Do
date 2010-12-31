@@ -2,3 +2,5 @@ pom.xml
 *jar
 lib
 classes
+public/stylesheets/
+.sass-cache

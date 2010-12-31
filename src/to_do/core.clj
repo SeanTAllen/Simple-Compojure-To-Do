@@ -1,6 +1,5 @@
 (ns to-do.core
-  (:require [net.cgrand.enlive-html :as html]
-            [to-do.templates :as templates])
+  (:require [to-do.templates :as templates])
   [:use compojure.core
         ring.adapter.jetty
         ring.middleware.file])

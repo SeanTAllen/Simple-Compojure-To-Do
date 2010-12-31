@@ -11,17 +11,17 @@
 (defn completed-todos []
   (filter #(= (get % :completed) false) *todo*))
             
-(defn welcome []
+(defn todo-list []
   (apply str(templates/todo-list (completed-todos))))
 
 (defn todo-new []
   (apply str(templates/todo-new)))
 
 (defroutes myroutes
-  (GET "/" [] (welcome))
+  (GET "/" [] (todo-list))
   (GET "/new" [] (todo-new))
-  (POST "/add" [] (welcome))
-  (POST "/finished" [] (welcome)))
+  (POST "/add" [] (todo-list))
+  (POST "/finished" [] (todo-list)))
 
 (def app 
   (-> #'myroutes

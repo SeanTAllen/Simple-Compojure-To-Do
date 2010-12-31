@@ -4,13 +4,25 @@
         ring.adapter.jetty
         ring.middleware.file])
 
-(def *todo* [])
+(def *todo* [{:id 1 :title "A To Do" :completed false}
+             {:id 2 :title "Not Done" :completed false}])
 
+(defn completed-todos []
+  (filter #(= (get % :completed) false) *todo*))
+  
+(def *todo-selector* [:.todo])
+
+(html/defsnippet todo-model "templates/list.html" *todo-selector*
+  [{:keys [title id]}]
+  [:.title] (html/content title)
+  [[:input (html/attr= :name "id")]] (html/set-attr :value id))
+  
 (html/deftemplate index "templates/list.html"
-  [context])
+  [todos]
+  *todo-selector* (html/substitute (map #(todo-model %) todos)))
           
 (defn welcome []
-  (apply str(index {})))
+  (apply str(index (completed-todos))))
 
 (defroutes myroutes
   (GET "/" [] (welcome))

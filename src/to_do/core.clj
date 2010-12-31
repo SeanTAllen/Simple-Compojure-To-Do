@@ -1,9 +1,16 @@
 (ns to-do.core
+  (:require [net.cgrand.enlive-html :as html])
   [:use compojure.core
-        ring.adapter.jetty])
+        ring.adapter.jetty
+        ring.middleware.file])
 
+(def *todo* [])
+
+(html/deftemplate index "templates/list.html"
+  [context])
+          
 (defn welcome []
-  "hello")
+  (apply str(index {})))
 
 (defroutes myroutes
   (GET "/" [] (welcome))
@@ -11,8 +18,9 @@
   (POST "/add" [] (welcome)
   (POST "/finished" [] (welcome)))))
 
+(def app 
+  (-> #'myroutes
+      (wrap-file "public")))
 
 (defonce server 
-  (run-jetty #'myroutes
-    { :join? true
-    :port 8080}))
+  (run-jetty #'app { :join? true :port 8080}))

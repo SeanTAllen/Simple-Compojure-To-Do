@@ -1,13 +1,21 @@
 A learning exercise using Compojure, Ring and Enlive.
-Input on more idiomatic ways to use clojure. Improvements in
-how compojure, ring, enlive et all are used greatly appreciated.
-Also interested in hints on idiomatic namespacing of web application
-components.
+
+I'm sure there are more idiomatic ways to do some things that I'm doing.
+Better ways to do some of the compojure and ring stuff that I'm doing and
+probably issues with how I'm using enlive, organizing code etc. Input
+on all of the above and more greatly appreciated. You can contact
+me here on github or email sean@monkeysnatchbanana.com.
+
+--
 
 A basic to do application that just provides for the ability to add new to do items and remove them when done.
 No priority etc. There is currently no persistence beyond in memory so all to-dos disappear on each restart.
 
+--
+
 No tests yet as I haven't read up on the various clojure testing framework options.
+
+--
 
 Requires leiningen and compass:
 

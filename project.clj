@@ -1,4 +1,4 @@
-(defproject to-do "1.0.0-SNAPSHOT"
+(defproject to-do "1.0.0"
   :description "A simple to do list using compojure"
   :dependencies [[org.clojure/clojure "1.2.0"]
                  [org.clojure/clojure-contrib "1.2.0"]

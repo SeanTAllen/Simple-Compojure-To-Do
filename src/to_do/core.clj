@@ -2,7 +2,6 @@
   (:require [to-do.templates :as templates]
             [to-do.database :as database])
   [:use compojure.core
-        [ring.adapter.jetty :only [run-jetty]]
         [ring.middleware.file :only [wrap-file]]
         [ring.util.response :only [redirect]]])
 
@@ -32,6 +31,3 @@
 (def app 
   (-> #'myroutes
       (wrap-file "public")))
-
-(defonce server 
-  (run-jetty #'app { :join? false :port 8080}))

@@ -1,1 +1,26 @@
-A learning exercise.
+A learning exercise using Compojure, Ring and Enlive.
+Input on more idiomatic ways to use clojure. Improvements in
+how compojure, ring, enlive et all are used greatly appreciated.
+Also interested in hints on idiomatic namespacing of web application
+components.
+
+A basic to do application that just provides for the ability to add new to do items and remove them when done.
+No priority etc. There is currently no persistence beyond in memory so all to-dos disappear on each restart.
+
+No tests yet as I haven't read up on the various clojure testing framework options.
+
+Requires leiningen and compass:
+
+Leiningen: https://github.com/technomancy/leiningen
+Compass: http://compass-style.org/
+
+To build and run:
+
+compass compile
+lein deps
+lein compile
+lein run -m to-do.server
+
+To use:
+
+build & run then point your browser at http://localhost:8080/

@@ -11,6 +11,13 @@ me here on github or email sean@monkeysnatchbanana.com.
 A basic to do application that just provides for the ability to add new to do items and remove them when done.
 No priority etc. There is currently no persistence beyond in memory so all to-dos disappear on each restart.
 
+The use of enlive as a templating engine was inspired by my work on a logicless and valueless templating engine
+for ruby ( java version available as well ): https://github.com/jamesladd/nate
+
+Special thanks to David Nolen for his enlive tutorial ( https://github.com/swannodette/enlive-tutorial ) which 
+provided the final push I needed to first start working on complete separation of logic and template and then
+gave me a basis for learning to use enlive as a templating engine.
+
 --
 
 No tests yet as I haven't read up on the various clojure testing framework options.

@@ -34,8 +34,10 @@ To build and run:
 compass compile
 lein deps
 lein compile
-lein run -m to-do.server
+lein ring server
 
 To use:
 
-build & run then point your browser at http://localhost:8080/
+build and run at which point, once the server starts, lein ring should
+open a browser window pointing at our server on http://0.0.0.0:3000/
+if it doesn't, just fire up a browser and point it at that address.

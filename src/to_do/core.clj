@@ -1,8 +1,8 @@
 (ns to-do.core
   (:require [to-do.templates :as templates]
-            [to-do.database :as database])
+            [to-do.database :as database]
+            [compojure.route :as route])
   [:use compojure.core
-        [ring.middleware.file :only [wrap-file]]
         [ring.util.response :only [redirect]]])
 
 (defn create-todo [title]
@@ -26,8 +26,8 @@
   (GET "/" [] (todo-list))
   (GET "/new" [] (todo-new))
   (POST "/add" [title] (todo-add title))
-  (POST "/finished" [id] (todo-finished (Integer. id))))
+  (POST "/finished" [id] (todo-finished (Integer. id)))
+  (route/resources "/")
+  (route/not-found "Page not found"))
 
-(def app 
-  (-> #'myroutes
-      (wrap-file "public")))
+(def app myroutes)

@@ -21,8 +21,9 @@
         <table>
           <tr class="todo">
             <td class="completion">
-              <form method="post" action="/finished">
+              <form method="post" action="/">
                 <fieldset>
+                  <input type="hidden" name="_method" value="DELETE">
                   <input type="hidden" name="id" value=""/>
                   <input type="image" src="/images/completed.png"/>
                 </fieldset>

@@ -14,7 +14,7 @@
 (defn todo-new []
   (apply str(templates/todo-new)))
   
-(defn todo-add [title]
+(defn todo-create [title]
   (create-todo title)
   (redirect "/"))
   
@@ -25,8 +25,8 @@
 (defroutes myroutes
   (GET "/" [] (todo-list))
   (GET "/new" [] (todo-new))
-  (POST "/add" [title] (todo-add title))
-  (POST "/finished" [id] (todo-finished (Integer. id)))
+  (POST "/" [title] (todo-create title))
+  (DELETE "/" [id] (todo-finished (Integer. id)))    
   (route/resources "/")
   (route/not-found "Page not found"))
 

@@ -6,5 +6,6 @@
                  [ring/ring-core "0.3.5"]
                  [ring/ring-jetty-adapter "0.3.5"]
                  [enlive "1.0.0-SNAPSHOT"]]
-  :dev-dependencies [[lein-ring "0.2.4"]]
+  :dev-dependencies [[lein-ring "0.2.4"]
+                     [swank-clojure "1.2.1"]]
   :ring {:handler to-do.core/myroutes})

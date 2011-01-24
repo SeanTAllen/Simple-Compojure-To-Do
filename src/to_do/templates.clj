@@ -1,6 +1,6 @@
 (ns to-do.templates
   (:require [net.cgrand.enlive-html :as html]))
-  
+
 (def *todo-selector* [:.todo])
 
 (html/defsnippet todo-model "templates/list.html" *todo-selector*
